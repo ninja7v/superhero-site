@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUPERHERO — control your computer with your eyes, face and voice</title>
+  <meta name="description" content="Look to point. Wink to click. Open your mouth and speak. SUPERHERO turns an ordinary webcam and microphone into a hands-free mouse and keyboard. Local, private, open source.">
+  <meta name="theme-color" content="#0a0a0c">
+  <meta property="og:title" content="SUPERHERO">
+  <meta property="og:description" content="Look to point. Wink to click. Open your mouth and speak.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="SUPERHERO home">
+        <span class="brand__dot" aria-hidden="true"></span>SUPERHERO
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="#actions">Actions</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#run">Run it</a></li>
+          <li><a href="#organizations">Organizations</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--ghost btn--sm" href="https://github.com/ninja7v/superhero">
+        <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero__inner">
+        <div class="hero__top">
+          <p class="eyebrow"><span class="pill">v0.1 · early</span> Open source · GPL-3.0</p>
+          <h1 class="hero__title type">
+            <span class="line">Look to point<i>.</i></span>
+            <span class="line">Wink to click<i>.</i></span>
+            <span class="line">Speak to command<i>.</i></span>
+          </h1>
+        </div>
+        <div class="hero__copy">
+          <p class="lede">
+            SUPERHERO turns an ordinary webcam and microphone into a mouse and keyboard.
+            A laser dot follows your eyes, your face and hands click, and your voice types.
+            Everything runs on your machine.
+          </p>
+          <div class="cta">
+            <a class="btn btn--primary" href="#run">Get started</a>
+            <a class="btn btn--ghost" href="https://github.com/ninja7v/superhero">View on GitHub</a>
+          </div>
+          <ul class="needs">
+            <li><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="10" r="7"/><circle cx="12" cy="10" r="2.5"/><path d="M8 21h8M12 17v4"/></svg>All you need is a webcam and a mic</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Linux · Windows · macOS</li>
+          </ul>
+        </div>
+
+        <figure class="demo">
+          <div class="screen" role="img" aria-label="Animated demo: the laser dot follows the gaze, a wink clicks, and speaking types into a search field">
+            <div class="screen__bar" aria-hidden="true"><i></i><i></i><i></i><span>Desktop</span></div>
+            <div class="screen__body" id="screen" aria-hidden="true">
+              <aside class="mock-side">
+                <span class="mock-app" data-target="files"><b></b>Files</span>
+                <span class="mock-app" data-target="mail"><b></b>Mail</span>
+                <span class="mock-app" data-target="music"><b></b>Music</span>
+              </aside>
+              <div class="mock-main">
+                <div class="mock-search" data-target="search">
+                  <svg viewBox="0 0 20 20" width="14" height="14"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <span class="mock-typed" id="typed"></span><span class="caret"></span>
+                </div>
+                <div class="mock-cards"><span></span><span></span><span></span><span></span></div>
+                <span class="mock-btn" data-target="go">Search</span>
+              </div>
+              <div class="laser" id="laser"></div>
+            </div>
+          </div>
+          <figcaption class="hud" aria-hidden="true">
+            <svg class="face" id="face" viewBox="0 0 60 60" width="40" height="40">
+              <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="2" opacity=".3"/>
+              <ellipse class="eye eye--l" cx="21" cy="25" rx="3.6" ry="3.6"/>
+              <ellipse class="eye eye--r" cx="39" cy="25" rx="3.6" ry="3.6"/>
+              <ellipse class="mouth" cx="30" cy="41" rx="7" ry="1.6"/>
+            </svg>
+            <div>
+              <span class="hud__label">Gesture</span>
+              <span class="hud__value" id="hud">Look</span>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="actions">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Actions</p>
+          <h2 class="type">Superpower only.</h2>
+          <p class="section__sub">Your desktop, mouse and keyboard keep working as they do now. SUPERHERO adds five more ways in.</p>
+        </header>
+        <ul class="steps">
+          <li class="step">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 64"><path d="M8 32 Q60 -4 112 32 Q60 68 8 32Z" fill="none" stroke="currentColor" stroke-width="2.5"/><g class="anim-look"><circle cx="60" cy="32" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><circle class="red" cx="60" cy="32" r="5"/></g></svg>
+            </div>
+            <div class="step__head"><h3>Look</h3><span class="badge badge--ok" title="Verified on real hardware. Accuracy is the top priority.">Working · improving</span></div>
+            <p>A red laser dot follows your gaze, drawn above every window. Clicks pass straight through it.</p>
+          </li>
+          <li class="step">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 64"><path d="M10 32 Q32 16 54 32 Q32 48 10 32Z" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="32" r="5" fill="currentColor"/><g class="anim-wink"><path d="M66 32 Q88 16 110 32 Q88 48 66 32Z" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="88" cy="32" r="5" fill="currentColor"/></g><g class="anim-spark"><circle class="red" cx="88" cy="10" r="3"/><circle class="red" cx="102" cy="13" r="2"/><circle class="red" cx="74" cy="13" r="2"/></g></svg>
+            </div>
+            <div class="step__head"><h3>Wink</h3><span class="badge badge--ok" title="Verified on real hardware">Working</span></div>
+            <p>Winks, blinks, a nod or a head tilt become clicks, drags and scrolls. You choose which gesture does what.</p>
+          </li>
+          <li class="step">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 64"><path class="anim-mouth" d="M14 22 Q40 14 66 22 Q62 50 40 50 Q18 50 14 22Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><g class="red-stroke" fill="none" stroke-width="2.5" stroke-linecap="round"><path class="anim-wave w1" d="M78 24 q7 8 0 16"/><path class="anim-wave w2" d="M88 17 q13 15 0 30"/><path class="anim-wave w3" d="M98 10 q19 22 0 44"/></g></svg>
+            </div>
+            <div class="step__head"><h3>Speak</h3><span class="badge badge--built" title="Built and covered by tests, not yet confirmed live">In testing</span></div>
+            <p>Hold your mouth open for a second, then talk. Dictate text, or say “copy”, “scroll down”, “switch to Firefox”.</p>
+          </li>
+          <li class="step">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M42 38 v-26 M50 38 v-22 M58 40 v-16" /><path class="anim-index" d="M34 38 v-24"/><path d="M28 50 L20 30"/><path d="M28 38 h32 v8 q0 12 -16 12 q-14 0 -16 -12z" stroke-width="2.5" stroke-linejoin="round" fill="currentColor" fill-opacity=".12"/><circle class="red anim-pinch" cx="22" cy="24" r="4" stroke="none"/></svg>
+            </div>
+            <div class="step__head"><h3>Hand</h3><span class="badge badge--built" title="Built and covered by tests, thresholds being tuned">In testing</span></div>
+            <p>Pinch to click, two fingers to right click. An open palm or a fist can trigger anything else.</p>
+          </li>
+          <li class="step">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 64"><g class="anim-wand"><path d="M40 58 L74 16" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M40 58 L48 48" stroke="currentColor" stroke-width="7" stroke-linecap="round" opacity=".5"/><circle class="red" cx="75" cy="15" r="4"/></g><g class="anim-trail red-stroke" fill="none" stroke-width="2" stroke-linecap="round"><path d="M86 10 l4 -4 M92 18 h6 M84 4 v-3"/></g></svg>
+            </div>
+            <div class="step__head"><h3>Wand</h3><span class="badge badge--exp" title="A prototype, not yet connected to the pointer">Experiment</span></div>
+            <p>Hold an ordinary pen like a magic wand and point with its tip. An early prototype for finer aim.</p>
+          </li>
+        </ul>
+        <p class="legend"><b>Working</b>: verified on real hardware. <b>In testing</b>: built and covered by tests, not yet confirmed live. <b>Experiment</b>: a prototype. <a href="https://github.com/ninja7v/superhero/blob/main/docs/ROADMAP.md">Roadmap →</a></p>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="features">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="kicker">Features</p>
+          <h2 class="type">Capable, tunable and safe.</h2>
+        </header>
+
+        <div class="grid">
+          <article class="card card--wide">
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></span><h3>Any gesture, any action</h3></div>
+            <p>Plug triggers into actions like a mixing desk. Face and hand gestures, your rules.</p>
+            <div class="mapping">
+              <div>
+                <span class="mapping__label">Triggers</span>
+                <ul class="chips">
+                  <li>Wink</li><li>Blink</li><li>Dwell</li><li>Mouth open</li><li>Head tilt</li><li>Nod</li><li>Pinch</li><li>Open palm</li><li>Fist</li>
+                </ul>
+              </div>
+              <span class="mapping__arrow" aria-hidden="true">→</span>
+              <div>
+                <span class="mapping__label">Actions</span>
+                <ul class="chips chips--red">
+                  <li>Click</li><li>Right click</li><li>Double click</li><li>Drag</li><li>Scroll</li><li>Voice</li><li>Pause</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/></svg></span><h3>Calibrate in a minute</h3></div>
+            <p>Follow a dot with your eyes on 5, 9 or 13 points. A quick test tells you how sharp your aim is.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/></svg></span><h3>A voice that stays home</h3></div>
+            <p>Dictation and commands run offline, on your machine. Teach it your own phrases.</p>
+          </article>
+
+          <article class="card">
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7z"/></svg></span><h3>An AI sidekick</h3></div>
+            <p>“Computer, open Firefox and search for…” Runs locally with Ollama, shows you its plan, and waits for your OK.</p>
+            <span class="tag">Optional · off by default</span>
+          </article>
+
+          <article class="card">
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v9"/><path d="M6.3 6.3a8 8 0 1 0 11.4 0"/></svg></span><h3>A kill switch</h3></div>
+            <p>Control starts off and needs a calibration. One shortcut stops everything, instantly.</p>
+            <p class="keys"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Esc</kbd></p>
+          </article>
+
+          <article class="card card--span2">
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h3>Your face stays yours</h3></div>
+            <p>No frames or audio are stored or uploaded. No account, no telemetry. After the first model download, it works offline.</p>
+          </article>
+        </div>
+
+        <dl class="stats">
+          <div><dt>Frame to pointer</dt><dd>13<small>ms</small></dd></div>
+          <div><dt>Camera tracking</dt><dd>30<small>fps</small></dd></div>
+          <div><dt>Frames uploaded</dt><dd>0</dd></div>
+          <div><dt>Desktop platforms</dt><dd>3</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="run">
+      <div class="wrap run">
+        <header class="section__head">
+          <p class="kicker">Run it</p>
+          <h2 class="type">Reveal the hero inside you!</h2>
+          <p class="section__sub">Needs Python 3.12 and <a href="https://docs.astral.sh/uv/">uv</a>. The face and speech models download on first launch; after that it works offline.</p>
+        </header>
+
+        <div class="run__grid">
+          <div class="terminal">
+            <div class="terminal__bar"><i></i><i></i><i></i>
+              <button class="copy" type="button" id="copy">Copy</button>
+            </div>
+<pre><code id="cmds"><span class="p" aria-hidden="true">$ </span>git clone https://github.com/ninja7v/superhero
+<span class="p" aria-hidden="true">$ </span>cd superhero
+<span class="p" aria-hidden="true">$ </span>uv sync
+<span class="p" aria-hidden="true">$ </span>uv run superhero</code></pre>
+          </div>
+
+          <ol class="checklist">
+            <li><strong>Camera.</strong> Check that you can see yourself.</li>
+            <li><strong>Calibrate.</strong> Follow the dot with your eyes and keep your head still.</li>
+            <li><strong>Turn control on.</strong> Allow the system’s permission prompt.</li>
+            <li><strong>Go.</strong> Look at something and wink. To speak, hold your mouth open for a second.</li>
+          </ol>
+        </div>
+
+        <div class="tips">
+          <p><strong>Best results.</strong> Even light on your face and a camera at the top centre of the screen help most. Recalibrate after you move.</p>
+          <p><strong>On Wayland,</strong> run <code>uv run superhero install-desktop</code> once so the emergency shortcut works. <code>uv run superhero doctor</code> shows what your machine supports.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="organizations">
+      <div class="wrap org">
+        <div class="org__copy">
+          <header class="section__head">
+            <p class="kicker">For organizations</p>
+            <h2 class="type">Everyone you serve becomes a superhero.</h2>
+            <p class="section__sub">Hospitals, schools, rehabilitation centres and companies often need more than a download. Tell us what you need, and we’ll shape SUPERHERO around it.</p>
+          </header>
+          <a class="btn btn--primary" href="mailto:luc-prevost@hotmail.fr?subject=SUPERHERO%20for%20our%20organization">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            Contact us
+          </a>
+          <div class="audience">
+            <span class="mapping__label">Delivered to anyone</span>
+            <ul class="chips">
+              <li>Rehabilitation centres</li><li>Hospitals</li><li>Schools</li><li>Universities</li><li>Enterprises</li><li>Public services</li>
+            </ul>
+          </div>
+        </div>
+        <ul class="asks">
+          <li>
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="4"/></svg></span><h3>Need a special feature?</h3></div>
+            <p>A gesture, a voice command or an accessibility need we don’t cover yet. We can build it for you.</p>
+          </li>
+          <li>
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0z"/><path d="M12 16v5"/></svg></span><h3>Need a special integration?</h3></div>
+            <p>Your software, your devices, your IT rules. We help with installation, configuration and rollout across your machines.</p>
+          </li>
+          <li>
+            <div class="card__head"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><h3>Need a different licence?</h3></div>
+            <p>SUPERHERO is GPL-3.0. Commercial licences are available for use outside its terms.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <a class="brand" href="#top"><span class="brand__dot" aria-hidden="true"></span>SUPERHERO</a>
+        <p class="footer__note">
+          GPL-3.0. Commercial licences available from <a href="https://github.com/ninja7v">Luc Prevost</a>.<br>
+          Gaze estimation by <a href="https://github.com/Wega-Labs/fovea">Fovea</a> (Apache-2.0).
+        </p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="https://github.com/ninja7v/superhero/blob/main/LICENSE">Licensing</a></li>
+        <li><a href="https://github.com/ninja7v/superhero/issues">Issues</a></li>
+        <li><a href="https://github.com/ninja7v">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
